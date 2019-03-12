@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ReportService {
 
-    void saveTodaysReport(String todaysExperience, String project, Employee employee);
+    void saveTodaysReportOnProject(Long employeeId, String projectName, String todaysExperience);
 
     List<Experience> getAllExperienceReports(Employee employee);
 
