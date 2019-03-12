@@ -34,8 +34,8 @@ public class ReportServiceImpl implements ReportService {
     }
 
     @Override
-    public List<Experience> getEmployeeExperienceReportsOnProject(Project project, Employee employee) {
-        return null;
+    public List<Report> getEmployeeExperienceReportsOnProject(Long employeeId, String projectName) {
+        return reportRepository.findAllByEmployeeIdAndProjectName(employeeId, projectName);
     }
 
 

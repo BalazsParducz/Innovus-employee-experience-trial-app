@@ -20,7 +20,6 @@ public class RestEndpoints {
 
     @PostMapping("/saveReport")
     public ResponseEntity<Object> saveTodaysReport(@RequestParam Long employeeId, @RequestParam String projectName, @RequestParam String todaysExperience) {
-        System.out.println("Facebook");
         reportService.saveTodaysReportOnProject(employeeId, projectName, todaysExperience);
         return new ResponseEntity<>("Your report has been saved successfully.", HttpStatus.OK);
     }

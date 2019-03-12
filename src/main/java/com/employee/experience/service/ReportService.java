@@ -2,7 +2,7 @@ package com.employee.experience.service;
 
 import com.employee.experience.model.Employee;
 import com.employee.experience.model.Experience;
-import com.employee.experience.model.Project;
+import com.employee.experience.model.Report;
 
 import java.util.List;
 
@@ -12,5 +12,5 @@ public interface ReportService {
 
     List<Experience> getAllExperienceReports(Employee employee);
 
-    List<Experience> getEmployeeExperienceReportsOnProject(Project project, Employee employee);
+    List<Report> getEmployeeExperienceReportsOnProject(Long employeeId, String projectName);
 }
