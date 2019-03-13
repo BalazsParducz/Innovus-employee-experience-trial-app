@@ -5,4 +5,6 @@ import com.employee.experience.model.Employee;
 public interface EmployeeService {
 
     void registerNewEmployee(Employee newEmployee);
+
+    Employee findByEmail(String email);
 }
