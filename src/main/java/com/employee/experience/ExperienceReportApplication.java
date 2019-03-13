@@ -8,6 +8,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.stream.Stream;
 
@@ -18,6 +19,10 @@ public class ExperienceReportApplication {
         SpringApplication.run(ExperienceReportApplication.class, args);
     }
 
+    @Bean
+    public BCryptPasswordEncoder bCryptPasswordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
     @Bean
     ApplicationRunner init(ProjectRepository projectRepo, EmployeeRepository employeeRepo) {
@@ -34,6 +39,7 @@ public class ExperienceReportApplication {
                 Employee employee = new Employee();
                 employee.setName(name);
                 employee.setEmail(employee.getName() + "@innovus.he");
+                employee.setPassword(bCryptPasswordEncoder().encode("password"));
                 employeeRepo.save(employee);
             });
             employeeRepo.findAll().forEach(System.out::println);
