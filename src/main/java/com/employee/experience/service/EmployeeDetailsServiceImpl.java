@@ -30,6 +30,7 @@ public class EmployeeDetailsServiceImpl implements UserDetailsService {
         if (employee == null) {
             throw new UsernameNotFoundException(email);
         }
-        return new User(employee.getEmail(), employee.getPassword(), emptyList());
+        return new org.springframework.security.core.userdetails.User(
+                employee.getEmail(), employee.getPassword(), emptyList());
     }
 }
