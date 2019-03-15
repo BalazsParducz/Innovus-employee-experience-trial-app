@@ -10,7 +10,7 @@ public interface ReportService {
 
     void saveTodaysReportOnProject(Long employeeId, String projectName, String todaysExperience);
 
-    List<Experience> getAllExperienceReports(Employee employee);
+    List<Report> getAllExperienceReportsSorted(Long employeeId);
 
     List<Report> getEmployeeExperienceReportsOnProject(Long employeeId, String projectName);
 }

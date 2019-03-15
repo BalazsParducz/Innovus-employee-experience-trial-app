@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Calendar;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
@@ -29,8 +30,10 @@ public class ReportServiceImpl implements ReportService {
     }
 
     @Override
-    public List<Experience> getAllExperienceReports(Employee employee) {
-        return null;
+    public List<Report> getAllExperienceReportsSorted(Long employeeId) {
+        List<Report> reports = reportRepository.findAllByEmployeeId(employeeId);
+        reports.sort(Comparator.comparing(Report :: getReportDate).reversed().thenComparing(Report :: getProjectName));
+        return reports;
     }
 
     @Override
