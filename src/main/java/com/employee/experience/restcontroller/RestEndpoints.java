@@ -1,6 +1,5 @@
 package com.employee.experience.restcontroller;
 
-
 import com.employee.experience.service.ReportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,6 +15,11 @@ public class RestEndpoints {
     @GetMapping("/getReportsOnProject")
     public ResponseEntity<Object> getReportsOfProject(@RequestParam Long employeeId, @RequestParam String projectName) {
         return new ResponseEntity<Object>(reportService.getEmployeeExperienceReportsOnProject(employeeId, projectName), HttpStatus.OK);
+    }
+
+    @GetMapping("/getAllMyReports")
+    public ResponseEntity<Object> getAllReportsOfaUser(@RequestParam Long employeeId) {
+        return new ResponseEntity<Object>(reportService.getAllExperienceReportsSorted(employeeId), HttpStatus.OK);
     }
 
     @PostMapping("/saveReport")
