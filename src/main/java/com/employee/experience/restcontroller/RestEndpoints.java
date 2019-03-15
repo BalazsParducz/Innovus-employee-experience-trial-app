@@ -13,7 +13,7 @@ public class RestEndpoints {
     @Autowired
     ReportService reportService;
 
-    @GetMapping("/getReportsOnProject/{employeeId}/{projectName}")
+    @GetMapping("/getReportsOnProject")
     public ResponseEntity<Object> getReportsOfProject(@RequestParam Long employeeId, @RequestParam String projectName) {
         return new ResponseEntity<Object>(reportService.getEmployeeExperienceReportsOnProject(employeeId, projectName), HttpStatus.OK);
     }
